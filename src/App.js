@@ -56,13 +56,13 @@ function App() {
   const [bottomText, setBottomText] = useState('');
   const [memeTemplate, setMemeTemplate] = useState('');
   const downloadUrl = `https://api.memegen.link/images/${
-    memeTemplate ? memeTemplate : 'doge'
+    memeTemplate ? memeTemplate : 'bender'
   }/${topText ? topText : '_'}/${bottomText ? bottomText : '_'}.png`;
   // const [generatedMeme, setGeneratedMeme] = useState(
-  //   `https://api.memegen.link/images/doge.png`,
+  //   `https://api.memegen.link/images/bender.png`,
   // );
   const [imageUrl, setImageUrl] = useState(
-    `https://api.memegen.link/images/doge.png`,
+    `https://api.memegen.link/images/bender.png`,
   );
   const saveFile = () => {
     FileSaver.saveAs(downloadUrl, 'meme.png');
@@ -110,7 +110,7 @@ function App() {
                   // uncomment if you want it to react without the generate button
                   setImageUrl(
                     `https://api.memegen.link/images/${
-                      memeTemplate || 'doge'
+                      memeTemplate || 'bender'
                     }/${event.currentTarget.value || ' '}/${bottomText}.png`,
                   );
                   setTopText(event.currentTarget.value);
@@ -134,7 +134,7 @@ function App() {
                   // uncomment if you want it to react without the generate button
                   setImageUrl(
                     `https://api.memegen.link/images/${
-                      memeTemplate || 'doge'
+                      memeTemplate || 'bender'
                     }/${topText}/${event.currentTarget.value || ' '}.png`,
                   );
                   setBottomText(event.currentTarget.value);
