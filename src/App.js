@@ -57,7 +57,6 @@ function App() {
   const [memeTemplate, setMemeTemplate] = useState('doge');
   const downloadUrl = `https://api.memegen.link/images/${memeTemplate}/${topText}/${bottomText}.png`;
   const [imageUrl, setImageUrl] = useState(downloadUrl);
-  // const memeFolder = `./downloads/meme.png`;
   const saveFile = () => {
     FileSaver.saveAs(downloadUrl, 'meme.png');
   };
@@ -71,6 +70,7 @@ function App() {
             <label css={labelStyles}>
               Meme template
               <input
+                value={memeTemplate}
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   // setImageUrl(
@@ -91,6 +91,7 @@ function App() {
             <label css={labelStyles}>
               Top text
               <input
+                value={topText}
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   // setImageUrl(
@@ -106,6 +107,7 @@ function App() {
             <label css={labelStyles}>
               Bottom text
               <input
+                value={bottomText}
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   // setImageUrl(
