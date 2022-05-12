@@ -70,7 +70,7 @@ function App() {
           <div>
             <label css={labelStyles}>
               {' '}
-              Meme template:
+              Meme template
               <input
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
@@ -91,7 +91,7 @@ function App() {
           <div>
             <label css={labelStyles}>
               {' '}
-              Top text:
+              Top text
               <input
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
@@ -107,7 +107,7 @@ function App() {
           <div>
             <label css={labelStyles}>
               {' '}
-              Bottom text:
+              Bottom text
               <input
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
