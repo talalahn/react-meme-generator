@@ -73,9 +73,9 @@ function App() {
               <input
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
-                  // setImageUrl(
-                  //   `https://api.memegen.link/images/${event.currentTarget.value}/${topText}/${bottomText}.png`,
-                  // );
+                  setImageUrl(
+                    `https://api.memegen.link/images/${event.currentTarget.value}/${topText}/${bottomText}.png`,
+                  );
                   setMemeTemplate(event.currentTarget.value);
 
                   // {
@@ -93,9 +93,9 @@ function App() {
               <input
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
-                  // setImageUrl(
-                  //   `https://api.memegen.link/images/${memeTemplate}/${event.currentTarget.value}/${bottomText}.png`,
-                  // );
+                  setImageUrl(
+                    `https://api.memegen.link/images/${memeTemplate}/${event.currentTarget.value}/${bottomText}.png`,
+                  );
                   setTopText(event.currentTarget.value);
                 }}
               />
@@ -108,9 +108,9 @@ function App() {
               <input
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
-                  // setImageUrl(
-                  //   `https://api.memegen.link/images/${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
-                  // );
+                  setImageUrl(
+                    `https://api.memegen.link/images/${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
+                  );
                   setBottomText(event.currentTarget.value);
                 }}
               />
