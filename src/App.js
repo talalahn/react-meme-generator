@@ -89,12 +89,6 @@ function App() {
                   //   `https://api.memegen.link/images/${event.currentTarget.value}/${topText}/${bottomText}.png`,
                   // );
                   setMemeTemplate(event.currentTarget.value);
-
-                  // {
-                  //   event.currentTarget.value === ''
-                  //     ? setMemeTemplate === 'bender'
-                  //     :;
-                  // }
                 }}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
@@ -113,7 +107,7 @@ function App() {
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   setImageUrl(
-                    `https://api.memegen.link/images/${memeTemplate}/${event.currentTarget.value}/${bottomText}.png`,
+                    `https://api.memegen.link/images${memeTemplate}${event.currentTarget.value}/${bottomText}.png`,
                   );
                   setTopText(event.currentTarget.value);
                 }}
@@ -135,7 +129,7 @@ function App() {
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   setImageUrl(
-                    `https://api.memegen.link/images/${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
+                    `https://api.memegen.link/images${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
                   );
                   setBottomText(event.currentTarget.value);
                 }}
