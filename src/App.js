@@ -55,9 +55,9 @@ function App() {
   const [topText, setTopText] = useState('memez');
   const [bottomText, setBottomText] = useState('me');
   const [memeTemplate, setMemeTemplate] = useState('doge');
-  const downloadUrl = `https://api.memegen.link/images/${memeTemplate}${
-    `/` + topText
-  }${`/` + bottomText}.png`;
+  const downloadUrl = `https://api.memegen.link/images/${
+    memeTemplate ? memeTemplate : 'doge'
+  }/${topText ? topText : 'memez'}/${bottomText ? bottomText : 'me'}.png`;
   // const [generatedMeme, setGeneratedMeme] = useState(
   //   `https://api.memegen.link/images/doge.png`,
   // );
@@ -66,7 +66,7 @@ function App() {
     FileSaver.saveAs(downloadUrl, 'meme.png');
   };
   const generateMeme = () => {
-    if (topText && bottomText) {
+    if (topText || bottomText || memeTemplate) {
       setImageUrl(downloadUrl);
     } else {
       setImageUrl(`https://api.memegen.link/images/${memeTemplate}`);
