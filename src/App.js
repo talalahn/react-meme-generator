@@ -56,9 +56,19 @@ function App() {
   const [bottomText, setBottomText] = useState('me');
   const [memeTemplate, setMemeTemplate] = useState('doge');
   const downloadUrl = `https://api.memegen.link/images/${memeTemplate}/${topText}/${bottomText}.png`;
+  // const [generatedMeme, setGeneratedMeme] = useState(
+  //   `https://api.memegen.link/images/doge.png`,
+  // );
   const [imageUrl, setImageUrl] = useState(downloadUrl);
   const saveFile = () => {
     FileSaver.saveAs(downloadUrl, 'meme.png');
+  };
+  const generateMeme = () => {
+    if (topText && bottomText) {
+      setImageUrl(downloadUrl);
+    } else {
+      setImageUrl(`https://api.memegen.link/images/${memeTemplate}`);
+    }
   };
 
   return (
@@ -84,6 +94,12 @@ function App() {
                   //     :;
                   // }
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    generateMeme(e.target.value);
+                  }
+                }}
               />
             </label>
           </div>
@@ -98,6 +114,12 @@ function App() {
                   //   `https://api.memegen.link/images/${memeTemplate}/${event.currentTarget.value}/${bottomText}.png`,
                   // );
                   setTopText(event.currentTarget.value);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    generateMeme(e.target.value);
+                  }
                 }}
               />
             </label>
@@ -114,6 +136,12 @@ function App() {
                   //   `https://api.memegen.link/images/${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
                   // );
                   setBottomText(event.currentTarget.value);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    generateMeme(e.target.value);
+                  }
                 }}
               />
             </label>
