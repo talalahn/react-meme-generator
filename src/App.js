@@ -54,14 +54,16 @@ const buttonStyles = css`
 function App() {
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  const [memeTemplate, setMemeTemplate] = useState('doge');
+  const [memeTemplate, setMemeTemplate] = useState('');
   const downloadUrl = `https://api.memegen.link/images/${
-    memeTemplate ? memeTemplate : '_'
+    memeTemplate ? memeTemplate : 'doge'
   }/${topText ? topText : '_'}/${bottomText ? bottomText : '_'}.png`;
   // const [generatedMeme, setGeneratedMeme] = useState(
   //   `https://api.memegen.link/images/doge.png`,
   // );
-  const [imageUrl, setImageUrl] = useState(downloadUrl);
+  const [imageUrl, setImageUrl] = useState(
+    `https://api.memegen.link/images/doge.png`,
+  );
   const saveFile = () => {
     FileSaver.saveAs(downloadUrl, 'meme.png');
   };
@@ -107,9 +109,9 @@ function App() {
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   setImageUrl(
-                    `https://api.memegen.link/images/${memeTemplate}/${
-                      event.currentTarget.value || ' '
-                    }/${bottomText}.png`,
+                    `https://api.memegen.link/images/${
+                      memeTemplate || 'doge'
+                    }/${event.currentTarget.value || ' '}/${bottomText}.png`,
                   );
                   setTopText(event.currentTarget.value);
                 }}
@@ -131,9 +133,9 @@ function App() {
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
                   setImageUrl(
-                    `https://api.memegen.link/images/${memeTemplate}/${topText}/${
-                      event.currentTarget.value || ' '
-                    }.png`,
+                    `https://api.memegen.link/images/${
+                      memeTemplate || 'doge'
+                    }/${topText}/${event.currentTarget.value || ' '}.png`,
                   );
                   setBottomText(event.currentTarget.value);
                 }}
