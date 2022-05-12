@@ -69,7 +69,6 @@ function App() {
         <div css={allLabelStyles}>
           <div>
             <label css={labelStyles}>
-              {' '}
               Meme template
               <input
                 onChange={(event) => {
@@ -90,7 +89,6 @@ function App() {
           </div>
           <div>
             <label css={labelStyles}>
-              {' '}
               Top text
               <input
                 onChange={(event) => {
@@ -106,7 +104,6 @@ function App() {
 
           <div>
             <label css={labelStyles}>
-              {' '}
               Bottom text
               <input
                 onChange={(event) => {
