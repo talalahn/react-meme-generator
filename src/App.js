@@ -2,10 +2,11 @@
 
 import './App.css';
 import { css } from '@emotion/react';
+import FileSaver from 'file-saver';
 import { useState } from 'react';
 
 const pageStyles = css`
-  background: url(https://i.pinimg.com/564x/37/dd/57/37dd57bebac43cbd3da15bceed28a43a.jpg);
+  background: url(https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png);
   height: 100vw;
 `;
 const headerStyles = css`
@@ -42,18 +43,24 @@ const labelStyles = css`
 
 const buttonStyles = css`
   display: flex;
-  margin: 0 auto;
+  /* width: 300px; */
   border-radius: 8px;
   font-size: 15px;
+  justify-content: center;
+  gap: 20px;
+  padding: 3px 10px 3px 10px;
 `;
 
 function App() {
   const [topText, setTopText] = useState('memez');
   const [bottomText, setBottomText] = useState('me');
   const [memeTemplate, setMemeTemplate] = useState('doge');
-  const [imageUrl, setImageUrl] = useState(
-    `https://api.memegen.link/images/${memeTemplate}/${topText}/${bottomText}.png`,
-  );
+  const downloadUrl = `https://api.memegen.link/images/${memeTemplate}/${topText}/${bottomText}.png`;
+  const [imageUrl, setImageUrl] = useState(downloadUrl);
+  // const memeFolder = `./downloads/meme.png`;
+  const saveFile = () => {
+    FileSaver.saveAs(downloadUrl, 'meme.png');
+  };
 
   return (
     <div className="App" css={pageStyles}>
@@ -117,16 +124,19 @@ function App() {
           <img data-test-id="meme-image" src={imageUrl} alt="generated meme" />
         </div>
       </div>
-      <div>
+      <div css={buttonStyles}>
+        <button css={buttonStyles} onClick={() => setImageUrl(downloadUrl)}>
+          Generate
+        </button>
         <button
           css={buttonStyles}
-          onClick={() =>
-            setImageUrl(
-              `https://api.memegen.link/images/${memeTemplate}/${topText}/${bottomText}.png`,
-            )
-          }
+          onClick={() => {
+            console.log(downloadUrl);
+            setImageUrl(downloadUrl);
+            saveFile();
+          }}
         >
-          Generate
+          Download
         </button>
       </div>
     </div>
