@@ -52,9 +52,9 @@ const buttonStyles = css`
 `;
 
 function App() {
-  const [topText, setTopText] = useState('memez');
-  const [bottomText, setBottomText] = useState('me');
-  const [memeTemplate, setMemeTemplate] = useState('doge');
+  const [topText, setTopText] = useState('');
+  const [bottomText, setBottomText] = useState('');
+  const [memeTemplate, setMemeTemplate] = useState('');
   const downloadUrl = `https://api.memegen.link/images/${
     memeTemplate ? memeTemplate : 'doge'
   }/${topText ? topText : 'memez'}/${bottomText ? bottomText : 'me'}.png`;
@@ -112,17 +112,17 @@ function App() {
                 value={topText}
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
-                  // setImageUrl(
-                  //   `https://api.memegen.link/images/${memeTemplate}/${event.currentTarget.value}/${bottomText}.png`,
-                  // );
+                  setImageUrl(
+                    `https://api.memegen.link/images/${memeTemplate}/${event.currentTarget.value}/${bottomText}.png`,
+                  );
                   setTopText(event.currentTarget.value);
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    generateMeme(e.target.value);
-                  }
-                }}
+                // onKeyDown={(e) => {
+                //   if (e.key === 'Enter') {
+                //     e.preventDefault();
+                //     generateMeme(e.target.value);
+                //   }
+                // }}
               />
             </label>
           </div>
@@ -134,17 +134,17 @@ function App() {
                 value={bottomText}
                 onChange={(event) => {
                   // uncomment if you want it to react without the generate button
-                  // setImageUrl(
-                  //   `https://api.memegen.link/images/${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
-                  // );
+                  setImageUrl(
+                    `https://api.memegen.link/images/${memeTemplate}/${topText}/${event.currentTarget.value}.png`,
+                  );
                   setBottomText(event.currentTarget.value);
                 }}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    generateMeme(e.target.value);
-                  }
-                }}
+                // onKeyDown={(e) => {
+                //   if (e.key === 'Enter') {
+                //     e.preventDefault();
+                //     generateMeme(e.target.value);
+                //   }
+                // }}
               />
             </label>
           </div>
